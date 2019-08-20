@@ -1,11 +1,17 @@
 import React from "react";
 import "./App.css";
-import Login from "./components/login/Login.js";
+import { Route, Switch } from "react-router-dom";
+import LoginForm from "./components/login/Login.js";
+import PrivateRoute from "./components/utils/PrivateRoute.js";
+import Friends from "./components/friends/Friends.js";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Switch>
+        <Route exact path="/" component={LoginForm} />
+        <PrivateRoute path="/protected" component={Friends} />
+      </Switch>
     </div>
   );
 }

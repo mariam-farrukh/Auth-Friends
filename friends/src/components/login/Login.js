@@ -7,6 +7,7 @@ const Login = props => {
     username: "",
     password: ""
   });
+
   const changeHandler = event => {
     event.preventDefault();
     setName({ ...name, [event.target.name]: event.target.value });
@@ -22,13 +23,14 @@ const Login = props => {
       .post("http://localhost:5000/api/login", name)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
+        props.history.push("/protected");
       })
       .catch(err => console.log(err.response));
-    props.history.push("/protected");
-  };
+        props.history.push("/protected");
+    };
 
   return (
-    <div className="loginModal">
+    <div className="login">
       <form
         className="login-modal"
         onSubmit={event => handleSubmit(event)}
