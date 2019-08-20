@@ -17,13 +17,13 @@ const Friends = () => {
   console.log("list of friends", friends);
   return (
     <div>
-        <AddFriends />
         <div>
-        <h4>Friends</h4>
-        {friends.length > 0
-            ? friends.map(friend => <FriendsDisplay key={friend.id} friend={friend} />)
-            : null}
+            <h4>Friends</h4>
+            {friends.length > 0
+                ? friends.map(friend => <FriendsDisplay key={friend.id} friend={friend} />)
+                : null}
         </div>
+        <AddFriends />
     </div>
   );
 };

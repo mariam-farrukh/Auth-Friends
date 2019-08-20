@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" component={LoginForm} />
-        <PrivateRoute path="/protected" component={Friends} />
+        <PrivateRoute path="/friends" component={Friends} />
       </Switch>
     </div>
   );

@@ -23,10 +23,10 @@ const Login = props => {
       .post("http://localhost:5000/api/login", name)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
-        props.history.push("/protected");
+        props.history.push("/friends");
       })
       .catch(err => console.log(err.response));
-        props.history.push("/protected");
+        props.history.push("/friends");
     };
 
   return (
