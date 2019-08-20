@@ -16,6 +16,9 @@ const AddFriends = props => {
     e.preventDefault();
     axiosWithAuth()
       .post("http://localhost:5000/api/friends", name)
+      .then(res => {
+        console.log(res.data);
+      })
       .catch(err => console.log(err.response));
   }
 

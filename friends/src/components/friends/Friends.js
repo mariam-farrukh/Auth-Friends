@@ -14,13 +14,28 @@ const Friends = () => {
       })
       .catch(err => console.log(err.response));
   }
+
+  const deleteFriend = id => {
+    axiosWithAuth()
+      .delete(`http://localhost:5000/api/friends/${id}`)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => console.log(err.response));
+  }
+
   console.log("list of friends", friends);
   return (
     <div>
         <div>
             <h4>Friends</h4>
             {friends.length > 0
-                ? friends.map(friend => <FriendsDisplay key={friend.id} friend={friend} />)
+                ? friends.map(friend => (
+                    <>
+                        <FriendsDisplay key={friend.id} friend={friend} />
+                        <button onClick={() => deleteFriend(friend.id)}>Remove Friend</button>
+                    </>
+                    ))
                 : null}
         </div>
         <AddFriends />
